@@ -55,6 +55,9 @@ client.on :message do |data|
   when 'bot help', 'help' then
     client.message channel: data['channel'], text: help
     logger.debug("A call for help")
+    
+  when 'Wie geht es dir?' then
+    client.message channel: data['channel'], text: 'Mir geht es gut. Was kann ich für dich tun?'
 
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
