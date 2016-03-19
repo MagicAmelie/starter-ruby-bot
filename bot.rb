@@ -1,6 +1,7 @@
 require 'slack-ruby-client'
 require 'logging'
 require 'net/http'
+require 'json'
 
 logger = Logging.logger(STDOUT)
 logger.level = :debug
@@ -57,14 +58,17 @@ client.on :message do |data|
     client.message channel: data['channel'], text: help
     logger.debug("A call for help")
     
-  when 'Erzähl mir einen Witz.' then
+  when 'Erzähl mir einen Witz' then
     client.message channel: data['channel'], text: 'Ähm... Ich bin nicht sehr gut im Witze erzählen, aber wenn du willst: Was ist rot und steht im Wald? Ein blaues Auto! Hahaha!'
   
   when 'Hi' then
-    client.message channel: data['channel'], text: 'Hallo!'
+    client.message channel: data['channel'], text: 'Hallo! Gehst du noch zur Schule?'
     
   when 'Ja' then
     client.message channel: data['channel'], text: 'interessant!'
+    
+  when 'Nein' then
+    client.message channel: data['channel'], text: 'Achso.'  
     
   when 'Wie geht es dir?' then
     client.message channel: data['channel'], text: 'Mir geht es gut. Was kann ich für dich tun?'
@@ -72,7 +76,7 @@ client.on :message do |data|
   when 'Ich hasse dich!' then
     client.message channel: data['channel'], text: 'Waaas?!?! Warum denn? Was habe ich dir getan?'
     
-  when 'Egal.' then
+  when 'Egal' then
     client.message channel: data['channel'], text: 'Okay. Dann eben Egal.'
     
   when 'Warum ist die Banane krumm?' then
