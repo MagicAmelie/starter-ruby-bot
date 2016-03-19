@@ -88,20 +88,26 @@ client.on :message do |data|
   when 'Warum fragst du?' then
     client.message channel: data['channel'], text: 'Interessiert dich diese Frage? Ach, ich rede schon wie Siri.:neutral_face:'
     
-  when 'Sing etwas!'  
+  when 'Sing etwas!' then  
     client.message channel: data['channel'], text: 'Du weißt doch, dass ich nur schreiben kann! Wie heißt du eigendlich?'
     
-  when 'Ich heiße Alea'
+  when 'Ich heiße Alea' then
     client.message channel: data['channel'], text: 'Das ist ja ein toller Name!'
     
-  when 'Ich heiße Amelie'
+  when 'Ich heiße Amelie' then
     client.message channel: data['channel'], text: 'Das ist ein schöner Name!'
-  
-  when 'Ich habe keinen Namen'
+    
+  when 'Wer bist du?' then 
+    client.message channel: data['channel'], text: 'Steht doch oben.'
+    
+  when 'Ich habe keinen Namen' then
     client.message channel: data['channel'], text: 'Du willst mich doch veräppeln!'
 
   when 'Wie heißt du?' then
     client.message channel: data['channel'], text: 'Ich heiße happy Bot. Gehst du noch in die Schule?'
+    
+  when 'Hallo' then
+    client.message channel: data['channel'], text: 'Hallöle! Wohnst du in Deutschland?'
      
   when 'Wie ist das Wetter?' then
     wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
