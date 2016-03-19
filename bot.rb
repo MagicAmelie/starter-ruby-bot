@@ -59,6 +59,12 @@ client.on :message do |data|
     
   when 'Erzähl mir einen Witz.' then
     client.message channel: data['channel'], text: 'Ähm... Ich bin nicht sehr gut im Witze erzählen, aber wenn du willst: Was ist rot und steht im Wald? Ein blaues Auto! Hahaha!'
+  
+  when 'Hi' then
+    client.message channel: data['channel'], text: 'Hallo!'
+    
+  when 'Ja' then
+    client.message channel: data['channel'], text: 'interessant!'
     
   when 'Wie geht es dir?' then
     client.message channel: data['channel'], text: 'Mir geht es gut. Was kann ich für dich tun?'
