@@ -58,6 +58,13 @@ client.on :message do |data|
     
   when 'Wie geht es dir?' then
     client.message channel: data['channel'], text: 'Mir geht es gut. Was kann ich für dich tun?'
+  
+  when 'Wie heißt du?' then
+    client.message channel: data['channel'], text: 'Ich heiße happy Bot. Gehst du noch in die Schule?'
+    
+  
+    
+    
 
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
