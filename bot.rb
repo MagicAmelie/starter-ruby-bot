@@ -80,7 +80,7 @@ client.on :message do |data|
      
   when 'Wie ist das Wetter?' then
     wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
-    client.message channel: data['channel'], text: wetterinfo 
+    client.message channel: data['channel'], text: wetterinfo['weather']['description'] 
     
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
