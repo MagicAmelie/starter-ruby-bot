@@ -56,16 +56,15 @@ client.on :message do |data|
     client.message channel: data['channel'], text: help
     logger.debug("A call for help")
     
+  when 'Erzähl mir einen Witz.' then
+    client.message channel: data['channel'], text: 'Ähm... Ich bin nicht sehr gut im Witze erzählen, aber wenn du willst: Was ist rot und steht im Wald? Ein blaues Auto! Hahaha!'
+    
   when 'Wie geht es dir?' then
     client.message channel: data['channel'], text: 'Mir geht es gut. Was kann ich für dich tun?'
   
   when 'Wie heißt du?' then
     client.message channel: data['channel'], text: 'Ich heiße happy Bot. Gehst du noch in die Schule?'
     
-  
-    
-    
-
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
     logger.debug("Unknown command")
