@@ -85,6 +85,21 @@ client.on :message do |data|
   when 'Ich mag dich.' then
     client.message channel: data['channel'], text: 'Das ist schön! Ich dich auch!'
     
+  when 'Warum fragst du?' then
+    client.message channel: data['channel'], text: 'Interessiert dich diese Frage? Ach, ich rede schon wie Siri.:neutral_face:'
+    
+  when 'Sing etwas!'  
+    client.message channel: data['channel'], text: 'Du weißt doch, dass ich nur schreiben kann! Wie heißt du eigendlich?'
+    
+  when 'Ich heiße Alea'
+    client.message channel: data['channel'], text: 'Das ist ja ein toller Name!'
+    
+  when 'Ich heiße Amelie'
+    client.message channel: data['channel'], text: 'Das ist ein schöner Name!'
+  
+  when 'Ich habe keinen Namen'
+    client.message channel: data['channel'], text: 'Du willst mich doch veräppeln!'
+
   when 'Wie heißt du?' then
     client.message channel: data['channel'], text: 'Ich heiße happy Bot. Gehst du noch in die Schule?'
      
