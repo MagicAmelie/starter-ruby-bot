@@ -69,6 +69,9 @@ client.on :message do |data|
   when 'Egal.' then
     client.message channel: data['channel'], text: 'Okay. Dann eben Egal.'
     
+  when 'Warum ist die Banane krumm?' then
+    client.message channel: data['channel'], text: 'Ich habe einen Freund der heißt Google. Der könnte das wissen.'
+    
   when 'Ich mag dich.' then
     client.message channel: data['channel'], text: 'Das ist schön! Ich dich auch!'
     
