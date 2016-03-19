@@ -65,14 +65,16 @@ client.on :message do |data|
   
   when 'Wie heißt du?' then
     client.message channel: data['channel'], text: 'Ich heiße happy Bot. Gehst du noch in die Schule?'
+     
+  when 'Wie ist das Wetter?' then
+    wetterinfo =Net::HTTP.get('http://api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
+    client.message channel: data['channel'], text: wetterinfo 
     
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
     logger.debug("Unknown command")
     
-  when 'Wie ist das Wetter?' then
-    wetterinfo =Net:HTTP.get('http://api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
-    client.message channel: data['channel'], text: wetterinfo
+
   end
 end
 
