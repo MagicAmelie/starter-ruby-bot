@@ -1,5 +1,6 @@
 require 'slack-ruby-client'
 require 'logging'
+require 'net/http'
 
 logger = Logging.logger(STDOUT)
 logger.level = :debug
@@ -68,6 +69,9 @@ client.on :message do |data|
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
     logger.debug("Unknown command")
+    
+  when 'Wie ist das Wetter?' then
+    Net:HTTP.get('http://api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
   end
 end
 
@@ -111,5 +115,6 @@ def post_message_payload(data)
       ]
   }
 end
+
 
 client.start!
